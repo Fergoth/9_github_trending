@@ -1,4 +1,4 @@
-# Github Trends
+# Свежее популярное на Гитхабе
 
 Скрипт позволяет посмотреть информацию об репозиториях на Гитхабе с наибольшим количеством звёзд за неделю
 
@@ -40,6 +40,3 @@ Name : golang-developer-roadmap-cn
 Description : 在 2019 成为一名 Go 开发者的路线图。为学习 Go 的人而准备。
 ...
 ```
-# Project Goals
-
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
