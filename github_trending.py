@@ -32,14 +32,16 @@ def print_repo_info(repo):
     print('Description : {}'.format(repo['description']))
     print('Stars : {}'.format(repo['stargazers_count']))
     print('Issues count : {}'.format(repo['open_issues']))
+    print('Issues urls: ')
     for issue in repo['open_issues_info']:
-        print('    Issue url: {}'.format(issue['html_url']))
+        print('    {}'.format(issue['html_url']))
 
 
 def print_repositories_info(repositories):
     print('Репозитории с наибольшим количеством звёзд за неделю')
     for repo in repositories:
         print_repo_info(repo)
+        print()
 
 if __name__ == '__main__':
     trending_repositories = get_trending_repositories()
