@@ -1,6 +1,5 @@
 import requests
 import datetime
-import pprint
 
 
 def get_week_ago():
@@ -12,10 +11,11 @@ def get_week_ago():
 def get_trending_repositories(top_size=20):
     date = get_week_ago()
     params = {'q': 'created:>{}'.format(date),
-              'sort': 'stars'}
+              'sort': 'stars',
+              'per_page': top_size}
     url = "https://api.github.com/search/repositories"
-    request = requests.get(url, params=params)
-    return request.json()['items'][:top_size]
+    response = requests.get(url, params=params)
+    return response.json()['items']
 
 
 def get_open_issues_amount(repositories):
@@ -24,7 +24,6 @@ def get_open_issues_amount(repositories):
         request = requests.get(url)
         issue_info = request.json()
         repo['open_issues_info'] = issue_info
-    # https: // api.github.com / repos / username / reponame / issues
 
 
 def print_repo_info(repo):
@@ -42,6 +41,7 @@ def print_repositories_info(repositories):
     for repo in repositories:
         print_repo_info(repo)
         print()
+
 
 if __name__ == '__main__':
     trending_repositories = get_trending_repositories()
